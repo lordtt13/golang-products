@@ -23,7 +23,15 @@ func main(){
 		},
 	}
 
-	fmt.Println(anu)
-	fmt.Printf("%+v",anu)
+	anu.update("Anushaa")
+	anu.print()
 }
 
+func (pointertoPerson *person) update(firstName string){
+	(*pointertoPerson).firstName = firstName
+}
+
+func (p person) print() {
+	fmt.Println(p)
+	fmt.Printf("%+v",p)
+}

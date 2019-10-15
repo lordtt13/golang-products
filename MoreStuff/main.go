@@ -20,8 +20,8 @@ func main(){
 		go checkLink(i, c)
 	}
 
-	for i := 0; i < len(links) ; i++{
-		fmt.Println(<-c)
+	for {
+		go checkLink(<-c,c)
 	}
 }
 
@@ -31,8 +31,9 @@ func checkLink(link string, c chan string)  {
 		fmt.Println("Encountered Error", err)
 		os.Exit(1)
 
-		c <- "Link might be down"
+		c <- link
 	}
 
-	c <- "The link's up"
+	fmt.Println(link," is up")
+	c <- link
 }

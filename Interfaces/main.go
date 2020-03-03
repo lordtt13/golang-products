@@ -25,26 +25,37 @@ type Car interface {
 	Drive()
 	Stop()
 }
+
 type Lambo struct {
 	LamboModel string
 }
+
 func NewModel(arg string) Car {
 	return &Lambo{arg}
 }
+
 type Chevy struct {
 	ChevyModel string
 }
+
 func (l *Lambo) Stop() {
 	fmt.Println("Stopping lambo")
 }
+
 func (l *Lambo) Drive() {
 	fmt.Println("Lambo on the move")
 	fmt.Println(l.LamboModel)
 }
+
 func (c *Chevy) Drive() {
 	fmt.Println("Chevy on the move")
 	fmt.Println(c.ChevyModel)
 }
+
+func Anything(anything interface{}) {
+	fmt.Println(anything)
+}
+
 
 func main(){
 	eb := englishBot{}
@@ -57,4 +68,13 @@ func main(){
 	c := Chevy{"C369"}
 	l.Drive()
 	c.Drive()
+
+	fmt.Println("go run main.go")
+	Anything(2.44)
+	Anything("Tanmay")
+	Anything(struct{}{})
+	mymap := make(map[string]interface{})
+	mymap["name"] = "lordtt13"
+	mymap["age"] = 21
+	fmt.Println(mymap)
 }

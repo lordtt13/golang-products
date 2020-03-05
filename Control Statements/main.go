@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	test("hello",",world")
 	fmt.Println("Hello world")
 	// if else, for, switch case, break continue
 	f := true
@@ -54,4 +55,8 @@ func main() {
 		fmt.Println("TGIF")
 		break
 	}
+}
+
+func test(i ...interface{}){
+	fmt.Print(i...)
 }
